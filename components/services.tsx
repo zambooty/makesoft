@@ -25,7 +25,7 @@ const features = [
   {
     icon: Plug,
     title: "Seamless Integration",
-    description: "Connect DigitalLink with your existing tools and workflows effortlessly — no disruptions, just smooth collaboration.",
+    description: "Connect makesoft with your existing tools and workflows effortlessly — no disruptions, just smooth collaboration.",
   },
 ]
 

@@ -20,7 +20,7 @@ export function Portfolio() {
           Building the future.
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
-          By merging creativity, innovation, and technology, DigitalLink helps communities evolve and thrive in a connected world.
+          By merging creativity, innovation, and technology, makesoft helps communities evolve and thrive in a connected world.
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
           Our approach unites humanitarian values with smart, future-ready systems designed to adapt and scale with real-world needs.

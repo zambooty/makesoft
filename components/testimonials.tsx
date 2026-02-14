@@ -9,7 +9,7 @@ const testimonials = [
     name: "Alexander Wallow",
     company: "PlumbedUp Solutions",
     quote:
-      "DigitalLink completely transformed how we manage our plumbing operations. The automation saved us countless hours every week, allowing our team to focus on what really matters—serving our clients better.",
+      "makesoft completely transformed how we manage our plumbing operations. The automation saved us countless hours every week, allowing our team to focus on what really matters—serving our clients better.",
     stats: [
       { label: "Time Saved", value: "70%" },
       { label: "Hours/Week", value: "15+" },
@@ -20,7 +20,7 @@ const testimonials = [
     name: "Thomas Pike",
     company: "Innovate Labs",
     quote:
-      "DigitalLink completely transformed our online presence. The new site loads faster, looks sharper, and actually converts. We saw a 180% increase in lead generation within the first month.",
+      "makesoft completely transformed our online presence. The new site loads faster, looks sharper, and actually converts. We saw a 180% increase in lead generation within the first month.",
     stats: [
       { label: "Lead Growth", value: "180%" },
       { label: "Load Time", value: "2.3s" },
@@ -31,7 +31,7 @@ const testimonials = [
     name: "Brailee Schneck",
     company: "HabitHike Co-Founder",
     quote:
-      "Our launch with DigitalLink was frictionless. HabitHike was live, stable, and synced with all our tools within days. Their support team went above and beyond to make the transition seamless.",
+      "Our launch with makesoft was frictionless. HabitHike was live, stable, and synced with all our tools within days. Their support team went above and beyond to make the transition seamless.",
     stats: [
       { label: "Days to Live", value: "3" },
       { label: "Uptime", value: "99.9%" },
@@ -127,9 +127,8 @@ export function Testimonials() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    i === current ? "w-8 bg-primary" : "w-2 bg-border"
-                  }`}
+                  className={`h-2 rounded-full transition-all ${i === current ? "w-8 bg-primary" : "w-2 bg-border"
+                    }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
