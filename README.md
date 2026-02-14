@@ -101,9 +101,16 @@ Ensure you have the following installed:
    cp .env.example .env.local
    ```
    
-   Add your environment variables:
+   Configure the required environment variables in `.env.local`:
    ```env
-   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
+   # Google Analytics
+   NEXT_PUBLIC_GA_MEASUREMENT_ID=your-ga-measurement-id
+   
+   # Domain
+   NEXT_PUBLIC_DOMAIN=https://yourdomain.com
+   
+   # Calendly Booking URL (required)
+   NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-calendly-username
    ```
 
 4. **Run the development server**

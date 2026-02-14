@@ -51,8 +51,8 @@ const nextConfig = {
             value: 'same-origin-allow-popups'
           },
           {
-            key: 'Cross-Origin-Embedder-Policy',
-            value: 'credentialless'
+            key: 'Cross-Origin-Resource-Policy',
+            value: 'cross-origin'
           },
           {
             key: 'Content-Security-Policy',

@@ -51,12 +51,13 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
   }, [open])
 
   function handleBookCall() {
+    const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mckale-g-jonas/30min"
     if (typeof window !== "undefined" && (window as any).Calendly) {
       ; (window as any).Calendly.initPopupWidget({
-        url: "https://calendly.com/makesoft/30min",
+        url: calendlyUrl,
       })
     } else {
-      window.open("https://calendly.com/makesoft/30min", "_blank")
+      window.open(calendlyUrl, "_blank")
     }
     onClose()
   }
