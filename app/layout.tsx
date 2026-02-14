@@ -91,17 +91,16 @@ export default function RootLayout({
     logo: 'https://makesoft.io/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-610-607-2432',
       contactType: 'customer service',
       email: 'support@makesoft.com',
-      areaServed: 'US',
+      areaServed: 'CA',
       availableLanguage: 'English',
     },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Philadelphia',
-      addressRegion: 'PA',
-      addressCountry: 'US',
+      addressLocality: 'Nova Scotia',
+      addressRegion: 'NS',
+      addressCountry: 'CA',
     },
     sameAs: [
       // Add your social media profiles here

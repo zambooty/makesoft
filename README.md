@@ -249,8 +249,7 @@ This project is proprietary and confidential. All rights reserved by makesoft.
 
 - 🌐 Website: [makesoft.io](https://makesoft.io)
 - 📧 Email: support@makesoft.com
-- 📍 Location: Philadelphia, PA, USA
-- 📞 Phone: +1-610-607-2432
+- 📍 Location: Nova Scotia, Canada
 
 ---
 
