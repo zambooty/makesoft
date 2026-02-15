@@ -33,7 +33,7 @@ export function Contact({ onGetStarted }: ContactProps) {
           <div className="rounded-2xl border border-border bg-card p-4 sm:p-6">
             <MapPin className="mb-2 h-4 w-4 text-primary sm:mb-3 sm:h-5 sm:w-5" />
             <div className="text-xs text-muted-foreground">Location</div>
-            <span className="mt-1 block text-xs font-medium text-foreground sm:text-sm">Philadelphia, PA</span>
+            <span className="mt-1 block text-xs font-medium text-foreground sm:text-sm">Nova Scotia, Canada</span>
           </div>
         </div>
 

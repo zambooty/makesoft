@@ -66,21 +66,40 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
     e.preventDefault()
     setSending(true)
 
-    // Build a mailto fallback with pre-filled fields
-    const mailtoUrl = `mailto:inquiries@makesoft.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${fromEmail}\n\n${message}`)}`
-    window.location.href = mailtoUrl
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fromEmail,
+          subject,
+          message,
+        }),
+      })
 
-    // Show success state briefly then close
-    setTimeout(() => {
-      setSending(false)
+      if (!response.ok) {
+        throw new Error('Failed to send email')
+      }
+
+      // Show success state
       setSent(true)
+
+      // Reset and close after delay
       setTimeout(() => {
         onClose()
-        setFromEmail("")
-        setSubject("")
-        setMessage("")
-      }, 1500)
-    }, 800)
+        setFromEmail('')
+        setSubject('')
+        setMessage('')
+        setSending(false)
+        setSent(false)
+      }, 2000)
+    } catch (error) {
+      console.error('Error sending email:', error)
+      setSending(false)
+      alert('Failed to send email. Please try again or contact us directly at support@makesoft.com')
+    }
   }
 
   if (!open) return null
@@ -180,10 +199,10 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
                   <Send className="h-6 w-6 text-primary" />
                 </div>
                 <p className="mt-4 font-display text-lg font-semibold text-foreground">
-                  Opening your email client...
+                  Email sent successfully!
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Your message details have been pre-filled.
+                  We'll get back to you shortly.
                 </p>
               </div>
             ) : (
@@ -195,7 +214,7 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
                   </label>
                   <input
                     type="email"
-                    value="inquiries@makesoft.com"
+                    value="support@makesoft.com"
                     readOnly
                     className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-sm text-muted-foreground outline-none cursor-not-allowed"
                   />

@@ -102,11 +102,7 @@ export default function RootLayout({
       addressRegion: 'NS',
       addressCountry: 'CA',
     },
-    sameAs: [
-      // Add your social media profiles here
-      // 'https://twitter.com/makesoft',
-      // 'https://linkedin.com/company/makesoft',
-    ],
+    sameAs: [],
   }
 
   return (
