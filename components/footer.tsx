@@ -22,23 +22,23 @@ export function Footer() {
             </h3>
             <ul className="mt-3 flex flex-col gap-2 sm:mt-4">
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
-                  Our Network
+                <Link href="#services" className="text-sm text-muted-foreground hover:text-foreground">
+                  Services
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
-                  Programs
+                <Link href="#work" className="text-sm text-muted-foreground hover:text-foreground">
+                  Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
-                  Impact Stories
+                <Link href="#pricing" className="text-sm text-muted-foreground hover:text-foreground">
+                  Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
-                  Resources
+                <Link href="#contact" className="text-sm text-muted-foreground hover:text-foreground">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -51,12 +51,12 @@ export function Footer() {
             </h3>
             <ul className="mt-3 flex flex-col gap-2 sm:mt-4">
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
                   Privacy Notice
                 </Link>
               </li>
