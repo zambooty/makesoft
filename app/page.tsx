@@ -12,6 +12,7 @@ import { FAQ } from "@/components/faq"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { LaunchModal } from "@/components/launch-modal"
+import { CookieConsent } from "@/components/cookie-consent"
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -28,6 +29,7 @@ export default function Home() {
       <Contact onGetStarted={() => setModalOpen(true)} />
       <Footer />
       <LaunchModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <CookieConsent />
     </main>
   )
 }

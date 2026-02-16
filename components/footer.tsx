@@ -62,6 +62,45 @@ export function Footer() {
               </li>
             </ul>
           </nav>
+
+          {/* Connect */}
+          <nav aria-labelledby="footer-connect-heading">
+            <h3 id="footer-connect-heading" className="text-xs font-medium tracking-widest uppercase text-muted-foreground">
+              Connect
+            </h3>
+            <ul className="mt-3 flex flex-col gap-2 sm:mt-4">
+              <li>
+                <a
+                  href="https://linkedin.com/company/makesoft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/makesoft-io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/makesoft_io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  Twitter
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <div className="mt-8 border-t border-border pt-6 text-center text-xs text-muted-foreground sm:mt-12">

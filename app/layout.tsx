@@ -92,7 +92,7 @@ export default function RootLayout({
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'support@makesoft.com',
+      email: 'sales@makesoft.io',
       areaServed: 'CA',
       availableLanguage: 'English',
     },
@@ -108,6 +108,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+            />
+            <script
+              id="google-analytics"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  
+                  gtag('consent', 'default', {
+                    'analytics_storage': 'denied'
+                  });
+                  
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"

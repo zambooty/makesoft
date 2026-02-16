@@ -2,11 +2,20 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight, ExternalLink } from "lucide-react"
 
 const categories = ["All", "Web", "Software", "Mobile", "AI"] as const
 
 const projects = [
+  {
+    name: "CASF Community Radio",
+    category: "Web",
+    description: "Live streaming community radio platform with schedule management, news updates, and song request system for Central Valley.",
+    tags: ["Next.js", "Streaming", "Real-time"],
+    image: "/images/portfolio-casf-radio.png",
+    url: "https://radio.makesoft.io",
+  },
   {
     name: "Neon-Lab",
     category: "Web",
@@ -79,11 +88,10 @@ export function CompanyPortfolio() {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`rounded-full px-4 py-2 text-xs font-medium transition-colors sm:px-5 sm:text-sm ${
-                  active === cat
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                }`}
+                className={`rounded-full px-4 py-2 text-xs font-medium transition-colors sm:px-5 sm:text-sm ${active === cat
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                  }`}
               >
                 {cat}
               </button>
@@ -93,59 +101,75 @@ export function CompanyPortfolio() {
 
         {/* Project grid */}
         <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project) => (
-            <div
-              key={project.name}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/30"
-            >
-              {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={`${project.name} project screenshot`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+          {filtered.map((project) => {
+            const ProjectCard = (
+              <div className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/30">
+                {/* Image */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} project screenshot`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground">
-                    View Project <ExternalLink className="h-4 w-4" />
+                  {/* Hover overlay - only show if URL exists */}
+                  {project.url && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground">
+                        View Project <ExternalLink className="h-4 w-4" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Info */}
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="font-display text-base font-bold text-foreground sm:text-lg">
+                        {project.name}
+                      </h3>
+                      <span className="mt-0.5 inline-block text-xs font-medium uppercase tracking-wider text-primary">
+                        {project.category}
+                      </span>
+                    </div>
+                    <ArrowUpRight className={`h-4 w-4 flex-shrink-0 text-muted-foreground transition-colors sm:h-5 sm:w-5 ${project.url ? 'group-hover:text-primary' : ''}`} />
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-3">
+                    {project.description}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground sm:px-3 sm:py-1"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
+            )
 
-              {/* Info */}
-              <div className="p-4 sm:p-6">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="font-display text-base font-bold text-foreground sm:text-lg">
-                      {project.name}
-                    </h3>
-                    <span className="mt-0.5 inline-block text-xs font-medium uppercase tracking-wider text-primary">
-                      {project.category}
-                    </span>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-muted-foreground transition-colors group-hover:text-primary sm:h-5 sm:w-5" />
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-3">
-                  {project.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground sm:px-3 sm:py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+            // Wrap in Link if URL exists, otherwise return card as-is
+            return project.url ? (
+              <Link
+                key={project.name}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {ProjectCard}
+              </Link>
+            ) : (
+              <div key={project.name}>{ProjectCard}</div>
+            )
+          })}
         </div>
       </div>
     </section>

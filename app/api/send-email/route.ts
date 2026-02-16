@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
         // Send email using Resend
         const data = await resend.emails.send({
-            from: 'makesoft <onboarding@resend.dev>', // Update with your verified domain
+            from: 'makesoft <sales@makesoft.io>', // Using verified sales email
             to: 'mckale.g.jonas@gmail.com',
             replyTo: fromEmail,
             subject: subject,

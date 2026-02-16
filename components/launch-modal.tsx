@@ -98,7 +98,7 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
     } catch (error) {
       console.error('Error sending email:', error)
       setSending(false)
-      alert('Failed to send email. Please try again or contact us directly at support@makesoft.com')
+      alert('Failed to send email. Please try again or contact us directly at sales@makesoft.io')
     }
   }
 
@@ -214,7 +214,7 @@ export function LaunchModal({ open, onClose }: LaunchModalProps) {
                   </label>
                   <input
                     type="email"
-                    value="support@makesoft.com"
+                    value="sales@makesoft.io"
                     readOnly
                     className="w-full rounded-lg border border-border bg-secondary/50 px-4 py-3 text-sm text-muted-foreground outline-none cursor-not-allowed"
                   />
