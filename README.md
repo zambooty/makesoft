@@ -197,6 +197,8 @@ Ensure you have the following installed:
 ```
 sales-makesoft/
 ├── app/                      # Next.js App Router
+│   ├── layout.tsx           # Root layout with metadata, SEO & structured data
+│   ├── icon.tsx             # Dynamic favicon generation (Next.js 16)
 │   ├── not-found.tsx        # Custom 404 page
 │   ├── error.tsx            # Custom error boundary
 │   ├── privacy/            # Privacy policy page
