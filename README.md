@@ -19,11 +19,12 @@
 
 ## 🆕 Recent Updates
 
-### ✨ Production-Ready Polish (February 2026)
-- ✅ **Perfect Lighthouse Scores** - Achieved 100/100 across all categories (Performance, Accessibility, Best Practices, SEO)
-- 🔒 **Enterprise Security Headers** - Implemented HSTS, CSP, COOP, and COEP for maximum protection
-- 🎨 **Professional Branding** - Added custom logo (1200x630px) and dynamic favicon generation
-- 📧 **Standardized Contact Info** - Unified email (support@makesoft.com) and location (Nova Scotia, Canada) across all pages
+- 📧 **Standardized Contact Info** - Unified email (sales@makesoft.io) and location (Nova Scotia, Canada) across all pages
+- 🍪 **GDPR Compliance** - Implemented cookie consent banner with GA4 consent mode integration
+- 📊 **Full GA4 Integration** - Complete tracking setup with gtag.js and proper CSP configuration
+- 🎨 **Professional Portfolio** - Added CASF Community Radio with custom browser mockup and live demo link
+- ⚠️ **Custom Error States** - Implemented branded 404 and error boundary pages for better UX
+- 📧 **Verified Email Domain** - Fully configured Resend with verified @makesoft.io sender domain
 - 📅 **Calendly Integration** - Seamless consultation booking system
 - 🛠️ **Enhanced Configuration** - Comprehensive `.env.example` with all environment variables
 - 🧹 **Code Cleanup** - Removed placeholders, fixed brand consistency, updated to makesoft throughout
@@ -163,7 +164,7 @@ Ensure you have the following installed:
    NEXT_PUBLIC_DOMAIN=https://yourdomain.com
    
    # Contact Email (standardized across all contact points)
-   NEXT_PUBLIC_CONTACT_EMAIL=support@makesoft.com
+   NEXT_PUBLIC_CONTACT_EMAIL=sales@makesoft.io
    
    # Calendly Booking URL (required for consultation scheduling)
    NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-calendly-username
@@ -196,11 +197,14 @@ Ensure you have the following installed:
 ```
 sales-makesoft/
 ├── app/                      # Next.js App Router
-│   ├── layout.tsx           # Root layout with metadata, SEO & structured data
-│   ├── icon.tsx             # Dynamic favicon generation (Next.js 16)
+│   ├── not-found.tsx        # Custom 404 page
+│   ├── error.tsx            # Custom error boundary
+│   ├── privacy/            # Privacy policy page
+│   ├── terms/              # Terms & conditions page
 │   ├── page.tsx             # Homepage
 │   └── globals.css          # Global styles
 ├── components/              # React components
+│   ├── cookie-consent.tsx   # GDPR cookie banner
 │   ├── navbar.tsx           # Navigation bar
 │   ├── hero.tsx             # Hero section
 │   ├── services.tsx         # Services showcase
@@ -332,7 +336,7 @@ This project is proprietary and confidential. All rights reserved by makesoft.
 **makesoft** - Full-Service Digital Innovation Agency
 
 - 🌐 Website: [makesoft.io](https://makesoft.io)
-- 📧 Email: support@makesoft.com
+- 📧 Email: sales@makesoft.io
 - 📍 Location: Nova Scotia, Canada
 
 ---
