@@ -2,8 +2,8 @@ module.exports = {
     apps: [
         {
             name: 'makesoft-website',
-            script: 'npm',
-            args: 'start -- -p 7676',
+            script: 'node_modules/next/dist/bin/next',
+            args: 'start -p 7676',
             instances: 'max',
             exec_mode: 'cluster',
             autorestart: true,
