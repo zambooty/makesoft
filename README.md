@@ -11,7 +11,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-[View Live Site](https://makesoft.io) · [Report Bug](https://github.com/zambooty/sales-makesoft/issues) · [Request Feature](https://github.com/zambooty/sales-makesoft/issues)
+[View Live Site](https://makesoft.io) · [Report Bug](https://github.com/zambooty/makesoft/issues) · [Request Feature](https://github.com/zambooty/makesoft/issues)
 
 </div>
 
