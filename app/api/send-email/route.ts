@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { render } from '@react-email/render'
+import ProjectRequestEmail from '@/emails/ProjectRequestEmail'
+import AutoReplyEmail from '@/emails/AutoReplyEmail'
 
 // Lazy initialization to avoid build-time errors
 const getResendClient = () => {
@@ -13,7 +16,7 @@ const getResendClient = () => {
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { fromEmail, subject, message } = body
+        const { fromEmail, subject, message, name } = body
 
         // Validate required fields
         if (!fromEmail || !subject || !message) {
@@ -35,29 +38,47 @@ export async function POST(request: NextRequest) {
         // Initialize Resend client
         const resend = getResendClient()
 
-        // Send email using Resend
-        const data = await resend.emails.send({
-            from: 'makesoft <sales@makesoft.io>', // Using verified sales email
-            to: 'mckale.g.jonas@gmail.com',
+        // Render email templates
+        const projectRequestHtml = await render(
+            ProjectRequestEmail({
+                fromEmail,
+                subject,
+                message,
+            })
+        )
+
+        const autoReplyHtml = await render(
+            AutoReplyEmail({ name })
+        )
+
+        // Send notification to team
+        const { data, error } = await resend.emails.send({
+            from: 'MakeSoft <no-reply@makesoft.io>',
+            to: 'sales@makesoft.io',
             replyTo: fromEmail,
-            subject: subject,
-            html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #1e3a8a;">New Contact Form Submission</h2>
-          <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0 0 10px 0;"><strong>From:</strong> ${fromEmail}</p>
-            <p style="margin: 0 0 10px 0;"><strong>Subject:</strong> ${subject}</p>
-          </div>
-          <div style="background: white; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-            <p style="margin: 0 0 10px 0;"><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap; margin: 0;">${message}</p>
-          </div>
-          <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
-            This email was sent from the makesoft website contact form.
-          </p>
-        </div>
-      `,
+            subject: `New Request: ${subject}`,
+            html: projectRequestHtml,
         })
+
+        if (error) {
+            console.error('Resend error:', error);
+            return NextResponse.json(
+                { error: 'Failed to send email' },
+                { status: 500 }
+            )
+        }
+
+        // Send auto-reply to client
+        try {
+            await resend.emails.send({
+                from: 'MakeSoft <sales@makesoft.io>',
+                to: fromEmail,
+                subject: 'We received your request',
+                html: autoReplyHtml,
+            })
+        } catch (autoReplyError) {
+            console.error('Error sending auto-reply:', autoReplyError)
+        }
 
         return NextResponse.json({ success: true, data }, { status: 200 })
     } catch (error) {
